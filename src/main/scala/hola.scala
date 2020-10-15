@@ -1,3 +1,5 @@
+//package main
+
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 
 case class Compute(data: Seq[Int], cont: ActorRef)
@@ -40,10 +42,6 @@ class Summarizer extends Actor {
         }
   }
 }
-
-
-
-
 
 object Main extends App {
   val max = 10000000
