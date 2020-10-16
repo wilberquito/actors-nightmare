@@ -1,6 +1,6 @@
 To compile and deploy Scala (2.13.x) projects you need:
 
-#JDK
+# JDK
 
 JDK is the runtime and developemnt kit for Java. 
 Scala compiles to Java bytecode that runs on JVM
