@@ -42,7 +42,7 @@ sudo apt-get install sbt
 
 If you are not sudoer you can install it in any folder of the system downloading the zip file in the same web page
 
-#Hello world Scala project
+# Hello world Scala project
 
 [Reference sbt site](https://docs.scala-lang.org/getting-started/sbt-track/getting-started-with-scala-and-sbt-on-the-command-line.html)
 
