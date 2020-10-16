@@ -10,10 +10,9 @@ class PrimeCounter extends Actor {
   def isPrime(n: Int): Boolean = new java.math.BigInteger("" + n).isProbablePrime(20)
 
   def receive: Receive = {
-        case Compute(data,c) =>  {
-           val answer = data.count(isPrime)
-           c ! Done(answer)
-          }
+        case Compute(data,c) =>
+          val answer = data.count(isPrime)
+          c ! Done(answer)
   }
 }
 
@@ -31,15 +30,13 @@ class Summarizer extends Actor {
     }
   }
 
-  def receive = {
-        case Count(n,t) => {
+  def receive: Receive = {
+        case Count(n,t) =>
           updateCount(n)
           temps = t
-        }
-        case Done(np) => {
+        case Done(np) =>
           total += np
           updateCount(-1)
-        }
   }
 }
 
@@ -72,7 +69,7 @@ object Main extends App {
       a ! Compute(g,s)
     }
 
-    println("tot enviat, esperant...")
+    println("tot enviat, esperant... a veure si triga en PACO")
 
 }
 
