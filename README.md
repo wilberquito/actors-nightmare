@@ -1,15 +1,16 @@
 # Actors Nightmare
 playing with sbt intellij akka SF4J dependencies
 
+
+To setup the Scala command line development environment follow:
+[HOWTO_setup_scala_development environment.md](https://github.com/mateuvillaret/actorsnightmare/blob/main/HOWTO_setup_scala_development%20environment.md)
+
 To start with this project clone it using git in your local machine:
 
 ```
 $ git clone https://github.com/mateuvillaret/actorsnightmare.git
 $ cd actorsnightmare
 ```
-
-To setup the Scala command line development environment follow:
-[HOWTO_setup_scala_development environment.md](https://github.com/mateuvillaret/actorsnightmare/blob/main/HOWTO_setup_scala_development%20environment.md)
 
 To run the project:
 ```
@@ -34,4 +35,4 @@ To generate a stand alone binary executable please refer to [HOWTO_deploy_standa
 
 To create a hello world project from scratch and get more details of the structure of a Scala project and learn some examples of the REPL please refer to [HOWTO_hello_world_scala_project.md](https://github.com/mateuvillaret/actorsnightmare/blob/main/HOWTO_hello_world_scala_project.md)
 
-
+To develop it using IntelliJ IDE (TO BE COMPLETED).
