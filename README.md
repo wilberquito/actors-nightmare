@@ -30,3 +30,4 @@ Hi ha 664579 primers
 S'ha trigat: 18.851755749 segons
 ```
 
+To generate a stand alone binary executable please refer to [HOWTO_hello_world_scala_project.md](https://github.com/mateuvillaret/actorsnightmare/blob/main/HOWTO_hello_world_scala_project.md)
