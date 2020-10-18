@@ -49,9 +49,86 @@ If you are not sudoer you can install it in any folder of the system downloading
 Create a hello world project. From an empty folder:
 
 ```
-sbt new scala/hello-world.g8
+$ sbt new scala/hello-world.g8
+[info] welcome to sbt 1.4.0 (Amazon.com Inc. Java 1.8.0_265)
+[info] set current project to emptyfolder (in build file:/home/oriol/IdeaProjects/emptyfolder/)
+[info] set current project to emptyfolder (in build file:/home/oriol/IdeaProjects/emptyfolder/)
+
+A template to demonstrate a minimal Scala application 
+
+name [Hello World template]: 
+Template applied in emptyfolder/./hello-world-template
+
+$ cd hello-world-template/
+```
+Inspect the source code generated in hello-world-template.
+
+The file hello-world-template\build.sbt contais the build definition such as the Scala version and the project dependencies.
+The folder hello-wold-template\src contains the source code of the project. In this case a single files with a single class:
+```
+object Main extends App {
+  println("Hello, World!")
+}
 ```
 
+The hello world example simply has a Main object that prints a message through the console
 
-#Generating an executable for the project
+# Running hello world template
+
+From the folder of the project you start SBT:
+```
+    $ cd hello-world-template
+    $ sbt
+```
+
+To run the project type run in the SBT console.
+This command triggers the downloanding of dependencies of the project, the compilation and then executes the code by finding an object with a main method defined.
+In this example this is accomplished by defining an object Main that extends App trait.
+
+```
+   sbt> run
+   [info] Compiling 1 Scala source to /home/oriol/IdeaProjects/emptyfolder/hello-world-template/target/scala-2.13/classes ...
+   [info] running Main 
+   Hello, World!
+   [success] Total time: 12 s, completed 18-oct-2020 18:10:19
+   sbt:hello-world> 
+```
+# SBT REPL
+
+In SBT you can also invoke the REPL(Read Evaluation Print Loop) tool by using "console" command:
+
+```
+    $ cd hello-world-template
+    $ sbt
+    sbt> console
+```
+From the REPL you can evaluate and execute any object or method defined in the project for exammple:
+```
+ sbt:hello-world> console
+ [info] Starting scala interpreter...
+ Welcome to Scala 2.13.1 (OpenJDK 64-Bit Server VM, Java 1.8.0_265).
+ Type in expressions for evaluation. Or try :help.
+ scala> Main.main(Array())
+ Hello, World!
+```
+
+In this previous command you run the main method of the singleton object Main with an empty list of Strings as argument.
+This empty list mimicks the list arguments entered by command line as in argv/argc used by the C programming language for example.
+It has the same effect as running the command "run" from SBT console (explained before)
+
+From the REPL you can get the type of an expression by using the :type command:
+```
+scala> :type Main
+Main.type
+```
+
+Obtaing the type of the main method of the Main singleton object:
+```
+scala> :type Main.main(_)
+Array[String] => Unit
+```
+
+(Note the use of "_" to transform a method main in function) 
+
+# Generating an executable for the project
 
