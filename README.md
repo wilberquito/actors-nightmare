@@ -30,9 +30,8 @@ tot enviat, esperant... a veure si triga en PACO
 Hi ha 664579 primers
 S'ha trigat: 18.851755749 segons
 ```
+To create a hello world project from scratch and get more details of the structure of a Scala project and learn some examples of the REPL please refer to [HOWTO_hello_world_scala_project.md](https://github.com/mateuvillaret/actorsnightmare/blob/main/HOWTO_hello_world_scala_project.md)
 
 To generate a stand alone binary executable please refer to [HOWTO_deploy_standalone_executable.md](https://github.com/mateuvillaret/actorsnightmare/blob/main/HOWTO_deploy_standalone_executable.md)
-
-To create a hello world project from scratch and get more details of the structure of a Scala project and learn some examples of the REPL please refer to [HOWTO_hello_world_scala_project.md](https://github.com/mateuvillaret/actorsnightmare/blob/main/HOWTO_hello_world_scala_project.md)
 
 To develop it using IntelliJ IDE (TO BE COMPLETED).
