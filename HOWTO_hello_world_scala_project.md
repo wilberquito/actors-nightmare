@@ -30,8 +30,10 @@ object Main extends App {
 
 The hello world example simply has a Main object that prints a message through the console.
 
-The previous command generates a project from a template stored in Github. Some official templatees are located in: [SBT template resolver](https://www.scala-sbt.org/1.x/docs/sbt-new-and-Templates.html#Template+Resolver)
+The previous command generates a project from a template stored in Github. 
+Some official templates are located in: [SBT template resolver](https://www.scala-sbt.org/1.x/docs/sbt-new-and-Templates.html#Template+Resolver)
 You can find more community maintained templates in the following site: [giter8 templates](https://github.com/foundweekends/giter8/wiki/giter8-templates)
+
 You can find for example Akka templates, Play Framework templates or Spark templates
 
 # Running hello world template
