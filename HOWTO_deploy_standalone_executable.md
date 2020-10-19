@@ -2,7 +2,7 @@ This example is for the hello world example described in [HOWTO_hello_world_scal
 
 # Generating an executable for the project
 
-To deploy and execute a binary for a Scala project an standard option is to add the [sbt-native-packager](https://www.scala-sbt.org/sbt-native-packager/) to the project build definition.
+To deploy and execute a binary for a Scala project an standard option is to add the [sbt-native-packager](https://www.scala-sbt.org/sbt-native-packager/) plugin to the project build definition.
 
 You have to edit (or create it) the project/plugins.sbt file and add the following line:
 ```
@@ -20,18 +20,18 @@ $sbt
 ```
 
 The sbt-native-packager tool adds new commands to SBT to package scala projects in different settings.
-A simple example to generate a stand-alone executable is executing from sbt console:
+A simple example to generate a stand-alone executable is to execute from the SBT console:
 ```
 sbt:hello-world> universal:dist
-[info] Main Scala API documentation to /home/oriol/IdeaProjects/emptyfolder/hello-world-template/target/scala-2.13/api...
-[info] Wrote /home/oriol/IdeaProjects/emptyfolder/hello-world-template/target/scala-2.13/hello-world_2.13-1.0.pom
+[info] Main Scala API documentation to hello-world-template/target/scala-2.13/api...
+[info] Wrote hello-world-template/target/scala-2.13/hello-world_2.13-1.0.pom
 model contains 2 documentable templates
 [info] Main Scala API documentation successful.
 [warn] [1] The maintainer is empty
 [warn] Add this to your build.sbt
 [warn]   maintainer := "your.name@company.org"
 [success] All package validations passed
-[info] Your package is ready in /home/oriol/IdeaProjects/emptyfolder/hello-world-template/target/universal/hello-world-1.0.zip
+[info] Your package is ready in hello-world-template/target/universal/hello-world-1.0.zip
 [success] Total time: 5 s, completed 18-oct-2020 18:43:39
 ```
 

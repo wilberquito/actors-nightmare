@@ -7,8 +7,8 @@ Create a hello world project. From an empty folder:
 ```
 $ sbt new scala/hello-world.g8
 [info] welcome to sbt 1.4.0 (Amazon.com Inc. Java 1.8.0_265)
-[info] set current project to emptyfolder (in build file:/home/oriol/IdeaProjects/emptyfolder/)
-[info] set current project to emptyfolder (in build file:/home/oriol/IdeaProjects/emptyfolder/)
+[info] set current project to emptyfolder (in build file:)
+[info] set current project to emptyfolder (in build file:)
 
 A template to demonstrate a minimal Scala application 
 
@@ -17,21 +17,26 @@ Template applied in emptyfolder/./hello-world-template
 
 $ cd hello-world-template/
 ```
-Inspect the source code generated in hello-world-template.
 
-The file hello-world-template/build.sbt contais the build definition such as the Scala version and the project dependencies.
-The folder hello-wold-template/src contains the source code of the project. In this case a single files with a single class:
+Inspect the source code generated in the hello-world-template folder.
+
+The file hello-world-template/build.sbt contains the build definition such as the Scala version and the project dependencies.
+The folder hello-wold-template/src contains the source code of the project. In this case a single file with a single object:
 ```
 object Main extends App {
   println("Hello, World!")
 }
 ```
 
-The hello world example simply has a Main object that prints a message through the console
+The hello world example simply has a Main object that prints a message through the console.
+
+The previous command generates a project from a template stored in Github. Some official templatees are located in: [SBT template resolver](https://www.scala-sbt.org/1.x/docs/sbt-new-and-Templates.html#Template+Resolver)
+You can find more community maintained templates in the following site: [giter8 templates](https://github.com/foundweekends/giter8/wiki/giter8-templates)
+You can find for example Akka templates, Play Framework templates or Spark templates
 
 # Running hello world template
 
-From the folder of the project you start SBT:
+From the folder of the project first start SBT:
 ```
     $ cd hello-world-template
     $ sbt
@@ -43,7 +48,7 @@ In this example this is accomplished by defining an object Main that extends App
 
 ```
    sbt> run
-   [info] Compiling 1 Scala source to /home/oriol/IdeaProjects/emptyfolder/hello-world-template/target/scala-2.13/classes ...
+   [info] Compiling 1 Scala source to hello-world-template/target/scala-2.13/classes ...
    [info] running Main 
    Hello, World!
    [success] Total time: 12 s, completed 18-oct-2020 18:10:19
@@ -67,7 +72,7 @@ In SBT you can also invoke the REPL (Read Evaluation Print Loop) tool by using "
     sbt> console
 ```
 
-From the REPL you can evaluate and execute any object or method defined in the project for exammple:
+From the REPL you can evaluate and execute any object or method defined in the project for example:
 ```
  sbt:hello-world> console
  [info] Starting scala interpreter...
@@ -87,12 +92,12 @@ scala> :type Main
 Main.type
 ```
 
-Obtaing the type of the main method of the Main singleton object:
+Obtaining the type of the main method of the Main singleton object:
 ```
 scala> :type Main.main(_)
 Array[String] => Unit
 ```
-(Note the use of "_" to transform the method main in function) 
+(Note the use of "_" to transform the method main in a function) 
 
 Other examples:
 ```
@@ -106,7 +111,7 @@ scala> :type "Y combinator"
 String
 ```
 
-Quitting REPL and returning the SBT console:
+Quitting REPL and returning to the SBT console:
 ```
 scala> :quit
 

@@ -11,7 +11,7 @@ There are several implementations available. For example:
 
 [Oracle JDK](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
 
-After installation verify that the version of the java executable is 1.8.xxx: (other versions of JDK are not guaranteed to work):
+After installation verify that the version of the java executable is 1.8.xxx (other versions of JDK are not guaranteed to work):
 
 ```
 $ java -version
@@ -24,7 +24,7 @@ OpenJDK 64-Bit Server VM Corretto-8.265.01.1 (build 25.265-b01, mixed mode)
 
 SBT is the standard build tool for Scala projects.
 
-It allows creating, compiling  and deploying Scala projects.
+It allows creating, compiling, debugging, testing and deploying Scala projects.
 It also contains a Scala REPL.
 
 To install SBT follow the instructions in:
@@ -39,4 +39,4 @@ sudo apt-get update
 sudo apt-get install sbt
 ```
 
-If you are not sudoer you can install it in any folder of the system downloading the zip file from the same web page.
+If you are not sudoer you can install it in any folder of the system by downloading the zip file from the same web page.
