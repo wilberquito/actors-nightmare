@@ -40,7 +40,7 @@ class Summarizer extends Actor {
   }
 }
 
-object Main extends App {
+object PrimersActors extends App {
   val max = 10000000
   // try with 1000000 or 10000000 if you have more patience
   val nactors = 10
