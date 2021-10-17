@@ -3,7 +3,7 @@ playing with sbt intellij akka SF4J dependencies
 
 
 To setup the Scala command line development environment follow:
-[HOWTO_setup_scala_development environment.md](https://github.com/mateuvillaret/actorsnightmare/blob/main/HOWTO_setup_scala_development%20environment.md)
+[HOWTO_setup_scala_development_environment.md](https://github.com/mateuvillaret/actorsnightmare/blob/main/HOWTO_setup_scala_development%20environment.md)
 
 To start with this project clone it using git in your local machine:
 
