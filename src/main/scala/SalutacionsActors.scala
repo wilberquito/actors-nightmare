@@ -1,3 +1,6 @@
+/*
+* This programs shows an example of how actors can communicate between them.
+*/
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 
