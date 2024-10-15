@@ -13,6 +13,7 @@ class Summarizer extends Actor {
   def receive: Receive = {
     case Done(np) => nPrimes += np
   }
+
   override def postStop(): Unit = {
     println("Hi ha " + nPrimes + " primers")
   }
