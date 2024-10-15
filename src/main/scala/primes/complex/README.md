@@ -1,3 +1,5 @@
 # Prime Numbers Counter Complex
 
-![Architecture](../../../../../assets/imgs/primes/PrimeCounterComplex.drawio.png)
+<p align="center">
+    <img src="../../../../../assets/imgs/primes/PrimeCounterComplex.drawio.png">
+p>
