@@ -17,11 +17,11 @@ class PrimeCounter extends Actor {
 }
 
 class Summarizer extends Actor {
-  var nPrimes = 0
-  var waitingGroups = 0
-  var t0: Long = 0
+  private var nPrimes       = 0
+  private var waitingGroups = 0
+  private var t0: Long      = 0
 
-  def updateCount(n: Int) {
+  private def updateCount(n: Int): Unit = {
     waitingGroups += n
     if (waitingGroups == 0) {
       println("Hi ha " + nPrimes + " primers")
@@ -46,7 +46,7 @@ object PrimersActors extends App {
   val groupSize = max / nActors / 10
   val groups = (2 to max).grouped(groupSize).zipWithIndex.toSeq
 
-  val actorSystem = ActorSystem("prime-system")
+  val actorSystem = ActorSystem("prime-counter-app")
 
   val seqPrimeCounterActors =
     for (i <- 0 until nActors) yield actorSystem.actorOf(Props[PrimeCounter], "counter" + i)

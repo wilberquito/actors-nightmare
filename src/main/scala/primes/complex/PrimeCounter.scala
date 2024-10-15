@@ -26,10 +26,9 @@ class Counter(accumulator: ActorRef) extends Actor {
     new java.math.BigInteger("" + n).isProbablePrime(20)
 
   def receive: Receive = {
-    case Compute(data: Seq[Int]) => {
+    case Compute(data: Seq[Int]) =>
       nPrimes += data.count(isPrime)
       sender ! Processed
-    }
   }
 
   override def postStop(): Unit = {
@@ -38,10 +37,10 @@ class Counter(accumulator: ActorRef) extends Actor {
 }
 
 class Generator(nCounters: Int, counter: ActorRef) extends Actor  {
-  val max               = 10000000
-  val groupSize         = max / nCounters / 10
-  val groups            = (2 to max).grouped(groupSize).toSeq
-  var waitingProcessed  = groups.length
+  private val max: Int              = 10000000
+  private val groupSize: Int        = max / nCounters / 10
+  private val groups: Seq[Range]    = (2 to max).grouped(groupSize).toSeq
+  private var waitingProcessed: Int = groups.length
 
   override def preStart(): Unit = {
     for (g <- groups) counter ! Compute(g)
@@ -51,19 +50,19 @@ class Generator(nCounters: Int, counter: ActorRef) extends Actor  {
     case Processed => updateWaiting(-1)
   }
 
-  def updateWaiting(n: Int): Unit = {
+  private def updateWaiting(n: Int): Unit = {
     waitingProcessed += n
     if (waitingProcessed <= 0) context.stop(self) // stops the current actor
   }
 }
 
 class Master extends Actor {
-  val t0 = System.nanoTime
-  val nCounters = 10
+  private val t0: Long = System.nanoTime
+  private val nCounters = 10
 
-  val accumulator = context.actorOf(Props(new Summarizer), "accumulator")
-  val counters    = context.actorOf(Props(new Counter(accumulator)).withRouter(RoundRobinPool(nCounters)), "counters")
-  val generator   = context.actorOf(Props(new Generator(nCounters, counters)), "generator")
+  private val accumulator: ActorRef = context.actorOf(Props(new Summarizer), "accumulator")
+  private val counters: ActorRef    = context.actorOf(Props(new Counter(accumulator)).withRouter(RoundRobinPool(nCounters)), "counters")
+  private val generator: ActorRef   = context.actorOf(Props(new Generator(nCounters, counters)), "generator")
 
   override def preStart(): Unit =  {
     context.watch(accumulator) // monitor actor's terminate state
