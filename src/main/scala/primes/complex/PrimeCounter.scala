@@ -11,8 +11,7 @@ class Summarizer extends Actor {
   var nPrimes = 0
 
   def receive: Receive = {
-    case Done(np) =>
-      nPrimes += np
+    case Done(np) => nPrimes += np
   }
   override def postStop(): Unit = {
     println("Hi ha " + nPrimes + " primers")
@@ -26,9 +25,10 @@ class Counter(accumulator: ActorRef) extends Actor {
     new java.math.BigInteger("" + n).isProbablePrime(20)
 
   def receive: Receive = {
-    case Compute(data: Seq[Int]) =>
+    case Compute(data: Seq[Int]) => {
       nPrimes += data.count(isPrime)
       sender ! Processed
+    }
   }
 
   override def postStop(): Unit = {
@@ -37,10 +37,10 @@ class Counter(accumulator: ActorRef) extends Actor {
 }
 
 class Generator(nCounters: Int, counter: ActorRef) extends Actor  {
-  val max = 10000000
-  val groupSize = max / nCounters / 10
-  val groups = (2 to max).grouped(groupSize).toSeq
-  var waitingProcessed = groups.length
+  val max               = 10000000
+  val groupSize         = max / nCounters / 10
+  val groups            = (2 to max).grouped(groupSize).toSeq
+  var waitingProcessed  = groups.length
 
   override def preStart(): Unit = {
     for (g <- groups) counter ! Compute(g)
@@ -61,8 +61,8 @@ class Master extends Actor {
   val nCounters = 10
 
   val accumulator = context.actorOf(Props(new Summarizer), "accumulator")
-  val counters = context.actorOf(Props(new Counter(accumulator)).withRouter(RoundRobinPool(nCounters)), "counters")
-  val generator = context.actorOf(Props(new Generator(nCounters, counters)), "generator")
+  val counters    = context.actorOf(Props(new Counter(accumulator)).withRouter(RoundRobinPool(nCounters)), "counters")
+  val generator   = context.actorOf(Props(new Generator(nCounters, counters)), "generator")
 
   override def preStart(): Unit =  {
     context.watch(accumulator) // monitor actor's terminate state
@@ -71,9 +71,9 @@ class Master extends Actor {
   }
 
   def receive: Receive = {
-    case Terminated(`generator`) => counters ! Broadcast(PoisonPill) // send a kill broadcast message
-    case Terminated(`counters`) => accumulator ! PoisonPill // send a kill message
-    case Terminated(`accumulator`) => context.system.terminate() // terminate the system
+    case Terminated(`generator`)    => counters ! Broadcast(PoisonPill) // send a kill broadcast message
+    case Terminated(`counters`)     => accumulator ! PoisonPill // send a kill message
+    case Terminated(`accumulator`)  => context.system.terminate() // terminate the system
   }
 
   override def postStop(): Unit = {
