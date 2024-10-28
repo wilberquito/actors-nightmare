@@ -85,5 +85,12 @@ object PrimeCounterApp extends App  {
   val system = ActorSystem("primer-counter-app")
   system.actorOf(Props[Master], "master")
 
+  // KEY POINTS:
+  // > Routing
+  // > Broadcast
+  // > PoisonPill
+  // > context.stop(self)
+  // > context.system.terminate()
+
   println("tot enviat, esperant... a veure si triga en PACO")
 }
