@@ -35,10 +35,11 @@ object SalutacionsActors extends App {
 
   println("MAIN: Ja he enviat les salutacions encadenades... i esperare 1 segon abans de dir adeu...")
 
-  Thread.sleep(1000)
+  Thread.sleep(1000) // what if we comment this line?
 
   fulano ! Adeu
   mengano ! Adeu
+  // actorSystem.terminate() // what happen if we uncomment this line?
 }
 
 
