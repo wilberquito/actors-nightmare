@@ -1,4 +1,3 @@
-
 val max = 10000000
 val nActors = 10
 val groupSize = max / nActors / 10

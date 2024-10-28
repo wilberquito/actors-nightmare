@@ -1,8 +1,10 @@
+package primes.naive
+
 /*
 * The program counts how many primes there are in a given range of integers.
 */
 
-object PrimersNaive extends App {
+object PrimeCounter extends App {
   val max = 10000000
 
   def isPrime(n: Int): Boolean = new java.math.BigInteger("" + n).isProbablePrime(20)
